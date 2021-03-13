@@ -1,0 +1,1446 @@
+@font-face{
+  src: url("../fonts/TmoneyRoundWindRegular.ttf");
+  font-family: "t-round";
+}
+
+@font-face{
+  src: url("../fonts/TmoneyRoundWindExtraBold.ttf");
+  font-family: "t-bold";
+}
+
+@font-face{
+  src: url("../fonts/ChoiceM.otf");
+  font-family: "choM";
+}
+
+@font-face{
+  src: url("../fonts/ChoiceB.ttf");
+  font-family: "choB";
+}
+/* fonts */
+::-webkit-scrollbar{
+  display:none;
+}
+
+
+
+
+body{
+  -webkit-text-size-adjust: none;
+  width: 100vw;
+  height:100vh;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  background-color: #f65c94;
+}
+.sb{
+  width:100vw;
+  height:100vh;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+}
+
+#circle1{
+  z-index: -1;
+  position: fixed;
+  top: 0px;
+  width:50%;
+}
+
+#circle2{
+  z-index: -1;
+  position: fixed;
+  right: 0px;
+  top: 16vw;
+  width:27%;
+}
+
+#back{
+  width: 100%;
+  height:19%;
+  margin: 0 auto;
+}
+
+.top {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  top: 12px;
+  right:12px;
+}
+
+#alarm {
+  height: 21px;
+}
+
+#logout {
+  height: 21px;
+  margin-left: 4px;
+}
+
+#logo_white
+{
+  height: 48px;
+  margin-left: 5vw;
+  margin-top: 25px;
+}
+
+a {
+  text-decoration:none !important;
+  color: #707070;
+}
+
+.hello {
+  position: relative;
+  font-family: "t-round";
+  font-size: 12px;
+  color: #ffffff;
+  margin-top: 17px;
+  display: flex;
+  justify-content: flex-end;
+  right:12px;
+}
+/* background */
+
+
+
+
+
+#remain{
+  flex: 1;
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  overflow: scroll;
+}
+
+.main_box{
+  width: 100%;
+  /*box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.219);*/
+  background-color: white;
+  border-top-right-radius: 7vw;
+  border-top-left-radius: 7vw;
+  overflow-y: scroll;
+}
+.main_box::-webkit-scrollbar{ display:none; }
+
+.box_inside {
+  width: 94vw;
+  margin-left: 3vw;
+  margin-top:3vw;
+}
+
+.box_small{
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 5vw;
+  padding-bottom: 2.5vw;
+  margin-bottom:5vw;
+}
+
+::placeholder{
+  color: #afafaf;
+}
+/* 박스 내부 공통 */
+
+
+
+
+
+#menubar {
+  position: fixed;
+  bottom: 0px;
+  filter: drop-shadow(0px 5px 5px #000);
+  width:100vw;
+  height: 15.5vw;
+}
+
+#logomain{
+  width: 20vw;
+  position: fixed;
+  bottom: 7.5vw;
+  margin-left: 40vw;
+}
+
+.menubox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 1.2vw;
+  font-size: 3.5vw;
+  position: fixed;
+  width:100vw;
+  height:15.5vw;
+}
+
+.bet{
+  flex: 0.8;
+}
+
+.buttonbox{
+  flex: 1;
+  text-align: center;
+}
+
+.active {
+  color:#f65c94;
+}
+/* menubox */
+
+
+
+
+
+.box_small h1{
+  margin-left: 5vw;
+  color: #404040;
+  font-family: "t-bold";
+  font-size: 25px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 15px;
+}
+
+.text{
+  margin:10px 0 25px 5vmin;
+  color: #404040;
+  font-family: "choM";
+  font-size: 11px;
+  line-height: 1.5;
+  width: 80vw;
+}
+
+.blank_bottom{height:20vh;}
+
+#calli{
+  width:86vw;
+  margin-left:4vw;
+}
+/* main */
+
+/*alarm*/
+.alarm_view {
+  position: fixed;
+  z-index: 100;
+}
+
+.alarm_bg {
+  position: fixed;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.4;
+}
+
+.alarm_board {
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+  width: 95vw;
+  height: 95vh;
+  margin: 2.5vh 0 0 2.5vw;
+  border-radius: 30px;
+}
+
+.alarm_header {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+}
+
+.alarm_header>h1 {
+  display: inline-block;
+  margin: 0;
+  margin-left: 20px;
+  font-size: 25px;
+}
+
+.alarm_header>img {
+  width: auto;
+  height: 40px;
+  float: right;
+  margin-right: 15px;
+}
+
+.alarm_body {
+  height: calc(95vh - 90px);
+  overflow-y: scroll;
+  overflow-x: hidden
+}
+
+.alarm_body::-webkit-scrollbar {
+  display: none;
+}
+
+.alarm_body>p {
+  margin: auto 0;
+  text-align: center;
+  margin-top: 50%;
+}
+
+.alarm_content {
+  width: 95vw;
+  height: 50px;
+  display: inline-flex;
+}
+
+.img_box {
+  flex-basis: 66px;
+}
+
+.img_box>img {
+  width: 45px;
+  margin-left: 5vw;
+  height: 39px;
+  width: auto;
+}
+
+.content_m {
+  width: calc(80vw - 60px);
+}
+
+.content_m #a {
+  font-size: 10px;
+  display: block;
+  margin-top: 10px;
+}
+
+.content_m #b {
+  font-size: 9px;
+  color: #d3d3d3;
+  display: block;
+  margin-top: 3px;
+}
+
+
+
+
+#tags{
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.tag{
+  font-family: "choM";
+  color: white;
+  font-size: 11px;
+  background-color:#afafaf;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 3.5px 10px 3.5px 10px;
+  border-radius: 15px 15px;
+}
+
+#board_posts{
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  display: flex;
+  justify-content: space-between;
+}
+
+.title h2{
+  margin-left: 5vw;
+  color: #404040;
+  font-family: "t-bold";
+  font-size: 18px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 15px;
+}
+
+.date{
+  font-size: 10px;
+  -webkit-transform: scale(0.8);
+  margin-right: 5vw;
+  font-family: "choB";
+}
+
+.cont{
+  margin:10px 0 0px 5vmin;
+  color: #404040;
+  font-family: "choM";
+  font-size: 11px;
+  line-height: 1.5;
+  width: 80vw;
+}
+.picked_tag{
+  background-color: #2680eb;
+}
+/* BOARD 순정, POST에서도 사용*/
+
+.popup_view {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin-top:-20vh;
+}
+
+.popup_bg {
+  position: fixed;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.4;
+}
+
+.popup_1 {
+  background: white;
+  width: 266px;
+  height: 110px;
+  border-radius: 16px;
+  z-index: 100;
+}
+
+.popup_1>p {
+  margin-left: 25px;
+  margin-top: 21px;
+  color: #404040;
+  font-size: 11px;
+  font-family: "choM";
+}
+
+.popup_1>span {
+  color: #f65c94;
+  font-size: 11px;
+  font-family: "choM";
+  display: block;
+  position: relative;
+  float: right;
+  margin-right: 20px;
+  margin-top: 25px;
+  width: 40px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 10px;
+}
+
+.popup_1>span:hover {
+  background: #f65c94;
+  color: white;
+}
+
+.popup_2 {
+  background: white;
+  width: 266px;
+  height: 110px;
+  border-radius: 16px;
+  z-index: 100;
+}
+
+.popup_2>p {
+  margin-left: 25px;
+  margin-top: 21px;
+  color: #404040;
+  font-size: 11px;
+  font-family: "choM";
+}
+
+.popup_2>span {
+  color: #f65c94;
+  font-size: 11px;
+  font-family: "choM";
+  display: block;
+  position: relative;
+  float: right;
+  margin-right: 20px;
+  margin-top: 25px;
+  width: 40px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 10px;
+}
+
+.popup_2>#p2del:hover {
+  background: #f65c94;
+  color: white;
+}
+
+.popup_2>#p2cncl {
+  color: #404040;
+}
+
+.popup_2>#p2cncl:hover {
+  background: #404040;
+  color: white;
+}
+/*board의 팝업창*/
+
+
+.line{
+  height: 0.1px;
+  margin: 11px 16px 10px 16px;
+  background-color: white;
+}
+
+.ifcomnone{
+  text-align: center;
+  font-size: 11px;
+  color:#afafaf;
+  margin-bottom:10px;
+}
+#comments{
+  margin-left: 8%;
+  margin-right: 4.5%;
+}
+
+.comment_reply{
+  height: max-content;
+  margin-bottom: 10px;
+}
+
+.comment{
+  display: flex;
+  height: fit-content;
+  margin-bottom: 10px;
+}
+.comment_area{
+  display:block;
+  max-height:115px;
+  overflow-y: scroll;
+}
+.comm_cont{
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 3%;
+  font-size: 11px;
+  line-height:11px;
+  font-family: "choM";
+  flex:1;
+}
+
+.lets_rep{
+  display: inline-block;
+  height: 12px;
+  width: fit-content;
+  -webkit-transform: scale(0.9);
+  vertical-align: middle;
+  font-size: 10px;
+  font-family: "choM";
+  color: #b2b2b2;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  line-height:11px;
+  margin-left: 3%;
+  word-break:break-all;
+}
+
+.but_del{
+  vertical-align: middle;
+  margin-top: 1px;
+  width: 12px;
+  height: 12px;
+  padding: 0 auto;
+  border: none;
+  outline: 0;
+}
+
+.reply{
+  display: flex;
+  height: fit-content;
+  margin-bottom: 10px;
+}
+
+.reply_space{
+  flex: 1;
+}
+
+.reply_cont{
+  padding-left: 3%;
+  padding-right: 3%;
+  font-size: 11px;
+  width: 66%;
+  height: 21px;
+  outline: 0;
+  border: 0;
+  border-radius: 20px 20px;
+}
+
+.but_up{
+  margin-left: 5px;
+  width: 21px;
+  height: 21px;
+
+}
+#lets_comm{
+  margin-left: 8%;
+  margin-right: 4.5%;
+  height: fit-content;
+  display: flex;
+}
+
+.input_comm{
+  padding-left: 3%;
+  padding-right: 3%;
+  font-size: 11px;
+  flex: 1;
+  height: 21px;
+  outline: 0;
+  border: 0;
+  border-radius: 20px 20px;
+}
+
+.name{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 11px;
+  font-family: "choB";
+  width: fit-content;
+}
+.commx2 {
+  display: flex;
+  height: fit-content;
+  margin-bottom: 10px;
+}
+
+.commx2_space {
+  width: 40px;
+}
+/* BOARD 클릭시 POST에서도 사용*/
+
+
+
+
+
+.choice_but{
+  font-family: "choM";
+  font-size: 11px;
+  background-color:white;
+  text-align: center;
+  padding: 2px 0px 2px 0px;
+  border-radius: 15px 15px;
+  border: 1.5px solid #f65c94;
+  flex: 22;
+}
+.choice_but>* {
+  color: #f65c94;
+}
+.choice_but_active{
+  background-color: #f65c94;
+}
+.choice_but_active>*{
+  color:white;
+}
+/* POST, CHAT 둘다 사용 */
+
+
+
+
+
+#post_top{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.post_space{
+  flex: 1;
+}
+
+#post_title{
+  display: flex;
+  padding-top: 15px;
+  margin-bottom: 5px;
+}
+
+#post_cont{
+  display: flex;
+  margin-bottom: 5px;
+}
+
+#post_tag{
+  padding-left: 18px;
+  padding-right: 18px;
+  width: calc(94vw - 36px);
+}
+
+#post_tag h2{
+  font-family: "t-bold";
+  font-size: 15px;
+  margin: 0px;
+  vertical-align: middle;
+}
+
+#cho_tag{
+  display: flex;
+  margin-bottom: 5px;
+}
+
+#upload_space{
+  display: flex;
+  margin-bottom: 5px;
+}
+
+#post_tag h3{
+  font-family: "choM";
+  font-size: 11px;
+  margin: 5px 0px 0px 10px;
+  color: #afafaf;
+  vertical-align: bottom;
+}
+
+.title_cont{
+  font-family: "choM";
+  padding-left: 3%;
+  padding-right: 3%;
+  font-size: 11px;
+  flex: 1;
+  height: 21px;
+  outline: 0;
+  border: 0;
+  border-radius: 20px 20px;
+  margin-left: 10px;
+}
+
+.space_cont{
+  font-family: "choM";
+  margin: 10px 0px 0px 0px;
+  font-size: 11px;
+  height: 30vh;
+  padding: 13px;
+  flex: 1;
+  outline: 0;
+  border: 0;
+  border-radius: 15px 15px;
+  -webkit-user-select: text;
+  resize:none;
+}
+
+.but_upload{
+  flex: 1;
+  height: 30px;
+  border-radius: 20px;
+  outline: 0;
+  border: 0;
+  background-color: #f65c94;
+  font-family: "choM";
+  font-size: 11px;
+  color: white;
+}
+/*POST*/
+
+
+
+
+
+.box_teacher{
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 45px;
+  margin-bottom: 10px;
+  height: 90px;
+  display: flex;
+}
+
+.pic_teacher{
+  width: 68px;
+  height: 68px;
+  background-color: black;
+  margin-top: 11px;
+  margin-left: 10px;
+  border-radius: 34px;
+  margin-right: 14px;
+}
+
+.info_teacher{
+  width: 228px;
+  margin-top: 9px;
+}
+
+#teachers h2{
+  font-family: "choM";
+  font-size: 17px;
+  margin: 0px;
+}
+
+#teachers h4{
+  font-family: "choM";
+  font-size: 10px;
+  -webkit-transform: scale(0.8);
+  -webkit-transform-origin: left;
+  margin: 0px;
+  color: #707070;
+}
+
+.but_consult{
+  height: 30px;
+  width: 100%;
+  border-radius: 20px;
+  outline: 0;
+  border: 0;
+  background-color: black;
+  font-family: "choM";
+  font-size: 11px;
+  color: white;
+  margin-top: 5px;
+}
+
+.chat_top {
+  margin: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.chat_top p{
+  width: 120px;
+  margin: 0px;
+  vertical-align: middle;
+  float: left;
+}
+
+.space_chat{
+  flex: 1;
+}
+/*CHAT*/
+
+
+
+
+
+#back_chat{
+  width: 100%;
+  height:5.3%;
+  margin: 0 auto;
+}
+/*CHAT 레이아웃(미완)*/
+
+
+/*diary*/
+.calendar {
+  width:88vw;
+  margin-left:3vw;
+  margin-top:3vw;
+}
+
+.cal_nav {
+  display: flex;
+  background:#404040;
+  height:40px;
+  border-radius: 20px;
+  justify-content: space-around;
+  width:72vw;
+  margin-left:8vw;
+  position:relative;
+  top:10px;
+}
+.nav-btn {
+  color:white;
+  font-family:"t-bold";
+  text-align: center;
+  width: 28px;
+  height: 40px;
+  font-size: 16px;
+  line-height: 38px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.go-today {
+  width: 70vw;
+  font-family:"t-round";
+}
+.cal_main{
+  margin-top:25px;
+}
+.calendar p{
+  color:#707070;
+  font-size:10px;
+  text-align:center;
+  height:30px;
+}
+.days {
+display: flex;
+margin: 25px 0 10px;
+}
+
+.day {
+width: calc(100% / 7);
+text-align: center;
+  font-family: "t-round";
+  font-size: 14px;
+  color: #396EE2;
+}
+
+.dates {
+display: flex;
+flex-flow: row wrap;
+  font-family: "t-round";
+  font-size:14px;
+}
+
+.cal_date {
+  width:calc(100% / 7);
+  text-align: center;
+  height:30px;
+}
+
+.other {
+opacity:.3;
+}
+.today {
+  position: relative;
+  color: #FFFFFF;
+  z-index:5;
+}
+
+.today::before {
+position: absolute;
+top: 50%;
+left: 50%;
+z-index: -1;
+display: block;
+width: 30px;
+height: 30px;
+text-align: center;
+background-color: #2680eb;
+border-radius: 50%;
+transform: translate(-50%, -50%);
+content: '';
+}
+.today_btn {
+  background:#2680eb;
+  height:40px;
+  border-radius: 20px;
+  width:80vw;
+  margin-left:7vw;
+  position:relative;
+  top:10px;
+  color:white;
+  font-family:"t-round";
+  font-size:16px;
+  text-align: center;
+  line-height: 38px;
+}
+
+.cal_active{
+  color: #396EE2;
+}
+
+/*diary2*/
+.today_title {
+  background: #404040;
+  height: 40px;
+  border-radius: 20px;
+  width: 94vw;
+  position: relative;
+  color: white;
+  font-family: "t-round";
+  font-size: 16px;
+  text-align: center;
+  line-height: 38px;
+  margin-bottom: 10px;
+}
+
+.diary_box {
+  height: 300px;
+  width: 86vw;
+  margin-left: 4vw;
+}
+
+.today_diary {
+  background: white;
+  height: 255px;
+  width: 86vw;
+  color: #404040;
+  border-radius: 5vw;
+  position: relative;
+  top: 20px;
+}
+
+#diary {
+  border: none;
+  outline: none;
+  font-family: "t-round";
+  width: 75vw;
+  margin-left: 2.5vw;
+  margin-top: 2.5vw;
+  height: 230px;
+  resize: none;
+}
+
+.blank_bottom2 {
+  width: auto;
+  height: 15px;
+}
+
+.save_btn {
+  style:none;
+  border:none;
+  outline:none;
+  width: 84vw;
+  text-align: center;
+  background: #f65c94;
+  margin-left: 5vw;
+  height: 30px;
+  line-height: 28px;  
+  border-radius: 15px;
+  color: white;
+  position: relative;
+  margin-top: -10px;
+}
+
+.save_btn:hover {
+  background-color: #707070;
+  cursor: pointer;
+}
+
+.today_diary form {
+  width: 80vw;
+  height: 300px;
+}
+@media (max-height:568px){
+  #back{
+      height: 21%;
+  }
+
+  .top {
+      top: 8px;
+      right:8px;
+  }
+
+  .hello {
+      font-size: 10px;
+      margin-top: 12px;
+      right:10px;
+  }
+
+  #alarm {
+      height: 18px;
+  }
+  
+  #logout {
+      height: 18px;
+  }
+
+  #logo_white
+  {
+      height: 35px;
+      margin-top: 20px;
+  }
+  /*배경쪽*/
+
+
+
+  h1{
+      padding-top: 20px;
+      font-size: 20px;
+  }
+
+  .text{
+      margin: 2px 0 15px 0vmin;
+      width: 90vw;
+      font-size: 10px;
+      -webkit-transform: scale(0.9);
+  }
+  /*메인화면*/
+
+
+
+  .tag{
+      font-size: 10px;
+      margin-right: 4px;
+      margin-top: 4px;
+      padding: 3px 8px 3px 8px;
+  }
+  
+  .title h2{
+      font-size: 16px;
+      padding-top: 10px;
+  }
+  
+  .cont{
+      font-size: 10px;
+  }
+  /*BOARD*/
+}
+
+@media (min-height:569px) and (max-height:667px){
+  #back{
+      height: 20%;
+  }
+
+  .top {
+      top: 10px;
+      right:10px;
+  }
+
+  .hello {
+      font-size: 11px;
+      margin-top: 14px;
+      right:10px;
+  }
+  
+  #alarm {
+      height: 20px;
+  }
+  
+  #logout {
+      height: 20px;
+  }
+
+  #logo_white{
+      height: 43px;
+      margin-top: 16px;
+  }
+  /* 배경 */
+
+
+
+  h1{
+      padding-top: 20px;
+      font-size: 20px;
+  }
+
+  .text{
+      margin: 2px 0 15px 3vmin;
+      width: 84.5vw;
+      font-size: 10px;
+      -webkit-transform: scale(0.96);
+  }
+  /*메인*/
+  
+
+  .tag{
+      font-size: 10px;
+      margin-right: 4px;
+      margin-top: 4px;
+      padding: 3px 8px 3px 8px;
+  }
+  
+  .title h2{
+      font-size: 17px;
+      padding-top: 13px;
+  }
+  
+  .cont{
+      font-size: 10px;
+  }
+  /*BOARD*/
+}
+
+@media (min-height:667.1px) and (max-height:736px){
+  #back{
+      height: 20%;
+  }
+
+  .top {
+      top: 12px;
+      right:12px;
+  }
+
+  .hello {
+      font-size: 12px;
+      margin-top: 14px;
+      right:13px;
+  }
+  
+  #alarm {
+      height: 23px;
+  }
+  
+  #logout {
+      height: 23px;
+  }
+
+  #logo_white
+  {
+      height: 50px;
+      margin-top: 20px;
+  }
+  /* 배경 */
+
+
+
+  h1{
+      padding-top: 20px;
+      font-size: 23px;
+  }
+
+  .text{
+      margin:2px 0 20px 5.5vmin;
+  }
+  /* 메인 */
+}
+
+@media (min-height:830px) and (max-height:1024px){
+  #circle1{
+      width: 40%;
+  }
+  
+  #circle2{
+      top: 11vw;
+      width: 18%;
+  }
+
+  #back{
+      height: 20%;
+  }
+
+  .top {
+      top: 20px;
+      right:20px;
+  }
+
+  #alarm {
+      height: 35px;
+  }
+  
+  #logout {
+      height: 35px;
+      margin-left: 8px;
+  }
+
+  #logo_white
+  {
+      height: 75px;
+      margin-top: 18px;
+  }
+
+  .hello {
+      font-size: 19px;
+      margin-top: 22px;
+      right:20px;
+  }
+  /* 배경 */
+
+
+
+  h1{
+      padding-top: 27px;
+      font-size: 40px;
+  }
+
+  .text{
+      font-size: 20px;
+  }
+  /* 메인 */
+
+
+
+  .tag{
+      font-size: 20px;
+      border-radius: 20px;
+      margin-right: 8px;
+      margin-top: 6px;
+      padding: 5px 20px 5px 20px;
+  }
+  
+  .title h2{
+      font-size: 35px;
+      padding-top: 15px;
+  }
+  
+  .cont{
+      font-size: 18px;
+  }
+
+  .date{
+      margin-top: 20px;
+      font-size: 15px;
+      -webkit-transform: scale(1.0);
+      margin-right: 5vw;
+      font-family: "choB";
+  }
+
+  .comment{
+      margin-bottom: 13px;
+  }
+
+  .reply{
+      margin-bottom: 13px;
+  }
+
+  #tags{
+      margin-bottom: 20px;
+  }
+
+  .name{
+      font-size: 18px;
+  }
+
+  .comm_cont{
+      font-size: 18px;
+      line-height:18px;
+  }
+
+  .lets_rep{
+      height: 18px;
+      -webkit-transform: scale(1.0);
+      font-size: 15px;
+      line-height:15px;
+  }
+
+  .but_del{
+      width: 15px;
+      height: 15px;
+  }
+
+  .reply_cont{
+      font-size: 18px;
+      height: 30px;
+  }
+
+  .but_up{
+      margin-left: 10px;
+      width: 30px;
+      height: 30px;
+  }
+  
+  .input_comm{
+      font-size: 18px;
+      height: 30px;
+  }
+    .commx2_space {
+      width: 70px;
+    }
+  /* BOARD */
+}
+
+@media (min-height: 1025px){
+  #circle1{
+      width: 40%;
+  }
+
+  #circle2{
+      top: 10vw;
+      width: 18%;
+  }
+
+  #back{
+      height: 20%;
+  }
+
+  .top {
+      top: 30px;
+      right:30px;
+  }
+
+  .hello {
+      font-size: 25px;
+      margin-top: 34px;
+      right:30px;
+  }
+
+  #alarm {
+      height: 50px;
+  }
+  
+  #logout {
+      height: 50px;
+      margin-left: 10px;
+  }
+
+  #logo_white
+  {
+      height: 100px;
+      margin-top: 10px;
+  }
+  /* 배경 */
+
+
+
+  h1{
+      padding-top: 27px;
+      font-size: 50px;
+  }
+
+  .text{
+      font-size: 25px;
+  }
+  /* 메인 */
+  
+  .tag{
+      font-size: 30px;
+      border-radius: 30px;
+      margin-right: 10px;
+      margin-top: 10px;
+      padding: 8px 15px 8px 15px;
+  }
+  
+  .title h2{
+      font-size: 45px;
+      padding-top: 13px;
+  }
+  
+  .cont{
+      font-size: 30px;
+  }
+
+  .date{
+      margin-top: 25px;
+      font-size: 20px;
+      -webkit-transform: scale(1.0);
+      margin-right: 5vw;
+      font-family: "choB";
+  }
+
+  #tags{
+      margin-bottom: 25px;
+  }
+
+
+  .name{
+      font-size: 25px;
+  }
+
+  .comment{
+      margin-bottom: 15px;
+  }
+
+  .reply{
+      margin-bottom: 15px;
+  }
+
+  .comm_cont{
+      font-size: 25px;
+      line-height:25px;
+  }
+
+  .lets_rep{
+      height: 25px;
+      -webkit-transform: scale(1.0);
+      font-size: 25px;
+  }
+
+  .but_del{
+      width: 25px;
+      height: 25px;
+  }
+
+  .reply_cont{
+      font-size: 25px;
+      height: 40px;
+  }
+
+  .but_up{
+      margin-left: 15px;
+      width: 40px;
+      height: 40px;
+  }
+  
+  .input_comm{
+      font-size: 25px;
+      height: 40px;
+  }
+   .commx2_space {
+     width: 100px;
+   }
+  /* BOARD */
+}
+/* 반응형 */
